@@ -8,7 +8,7 @@ en el apartado "Adjusting your PATH environment" seleccionar:
 "Use Git and optional Unix tools from the Comand Prompt" (Nos permite trabajar con la consola de Git)
 resto ACEPTAR >>>>>>
 
-comandos desde consola git: (puedes verlo desddevisual studio code [terminal git])
+comandos desde consola git: (puedes verlo desde visual studio code [terminal git])<<<<<<<<<<<<<<<<
 cd C:
 cd cursos
 cd git
@@ -338,11 +338,29 @@ Acceder o creau un nuevo repositorio	https://github.com/albertclementellovera?ta
 										Rellenamos
 										Le damos al Commit
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PARA DESCARGAR O CLONAR EL PROYECTO DE GITHUB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-Bajar del repositorio					Darle al boton "Clone or Download" o "Code"
+Bajar del repositorio					https://github.com/albertclementellovera/git-github-detalle/tree/master
+										Darle al boton "Clone or Download" o "Code"
 										Copiamos la URL
-										Abrimos la consola de git "GIT BASH"
-git clone (URL)							git clone + paste de la URL copiada							
+										opcion 1.- Abrimos la consola de git "GIT BASH"
+git clone (URL)								git clone + paste de la URL copiada		
+										opcion 2.- DESDE VISUAL STUDIO CODE (CTRL + SHIFT + P) Git: Clonar >  (Clonar desde HitHub) > nos pide la URL copiada <<<<<<<<<<<<<<
+										
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SUBIR MODIFICACIONES O AÑADIR CONTENIDO AL CONTENIDO EN GITHUB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+										Tenemos que crear una version adicional con:
+git branch								git branch segundaVersion				<<<<<<<< Creamos una version inicialmente identica a la master y/o  con nuevos elementos
+git checkout segundaVersion				<<<<< Pasa a version (segundaVersion)
+git add .								incorporamos lo nuevo
+git status
+git commit -m "Texto"
+git log
+git push origin segundaVersion			Lo subira como una nueva rama (branch) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+				>>>>>>>>>>>>>>>>>>>>>>>>Para fusionarlo al contenido en el repositorio<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+git checkout master
+git merge segundaVersion
+
+										Añadir fichero via UPLOAD en repositorio GITHUB C:\Cursos\GIT\Proyecto\Comandos consolade Git.txt
+ 
 					
 					
-					
+					  
 					
