@@ -353,12 +353,13 @@ git add .								incorporamos lo nuevo
 git status
 git commit -m "Texto"
 git log
+git push 					Lo incorpora a lo anterior <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 git push origin segundaVersion			Lo subira como una nueva rama (branch) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 				>>>>>>>>>>>>>>>>>>>>>>>>Para fusionarlo al contenido en el repositorio<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 git checkout master
 git merge segundaVersion
 
-										Añadir fichero via UPLOAD en repositorio GITHUB C:\Cursos\GIT\Proyecto\Comandos consolade Git.txt
+				Añadir fichero via UPLOAD en repositorio GITHUB C:\Cursos\GIT\Proyecto\Comandos consolade Git.txt
  
 					
 					
