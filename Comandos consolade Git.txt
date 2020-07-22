@@ -1,0 +1,348 @@
+https://www.faztweb.com/curso/git
+Git y Github | Curso Práctico de Git y Github Desde Cero
+
+DESCARGAR GIT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+https://git-scm.com/
+INSTALACION:
+en el apartado "Adjusting your PATH environment" seleccionar: 
+"Use Git and optional Unix tools from the Comand Prompt" (Nos permite trabajar con la consola de Git)
+resto ACEPTAR >>>>>>
+
+comandos desde consola git: (puedes verlo desddevisual studio code [terminal git])
+cd C:
+cd cursos
+cd git
+cd proyecto
+ls  (respuesta)  app.js  index.html (contenido del directorio)
+git init		incorpora una carpeta oculta al proyecto (.git) 
+				- Se inicia el trabajo con el working directori de git, 
+				- luego lo pasara a la staging area
+				- luego al repositorio
+git status		para ver el estado de nuestros archivos
+				- Se tienen que agregar a la staging area
+git add	.			para agregar a la staging area todo en lugar de fichero uno por uno
+git add	(fichero)	para agregar a la staging area (ejem. git add app.js )
+				si volvemos a solicitar git status(nos dice):
+				-No se han realizado commits
+				-Hay un archivo para realizar commit (el incorporadocon al add) new file:   app.js
+				-agregar todos los que requieren seguimiento
+git commit		Para crear un primer punto de control de nuestro codigo
+git commit -m "Texto de la modificacion commit"		evita la pantalla posterior que solicita texto del commit por (-m)
+				-nos pide identificacion (Please tell me who you are.)
+				Nos da los comandos precisos para la configuracion:
+					git config --global user.email "you@example.com"
+					git config --global user.name "Your Name"
+git config --global user.email "albertclementellovera@gmail.com"
+git config --global user.name "albertclementellovera"
+				Una vez identificados si realizamos el (git commit) nos aparece:
+				# Please enter the commit message for your changes. Lines starting
+				# with '#' will be ignored, and an empty message aborts the commit.
+				#
+				# On branch master
+				#
+				# Initial commit
+				#
+				# Changes to be committed:
+				#       new file:   app.js
+				#       new file:   index.html
+				#       new file:   style.css
+				#
+				# Untracked files:
+				#       .vscode/
+				C:/Cursos/GIT/Proyecto/.git/COMMIT_EDITMSG [unix] (12:31 21/07/2020)         1,0-1 Comienzo
+				
+				En parte superior teclear texto(si no deja pulsar antes I (debajo aparece INSERTAR))(ejem. mi primer commit) 
+				una vez editado el mensaje darle a ESC y pulsar :WQ (nos responde):
+					C:\Cursos\GIT\Proyecto>git commit
+					[master (root-commit) 7ad7914] mi primer commit
+					
+				
+					 3 files changed, 2 insertions(+)
+					 create mode 100644 app.js
+					 create mode 100644 index.html
+					 create mode 100644 style.css
+git log			Para ver todos los commits que hemos creado
+				C:\Cursos\GIT\Proyecto>git log
+				commit 7ad791455bac08a3503dfffeefec0c35b4831946 (HEAD -> master)
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:31:38 2020 -0600
+
+					mi primer commit
+				
+				Si damos al comando git status (responde)
+				C:\Cursos\GIT\Proyecto>git status
+				On branch master
+				onothing to commit, working tree clean 
+				
+>>>>>>>>>>>>>>>	SI MODIFICAMOSCUALQUIER ARCHIVO POSTERIOR AL COMMIT <<<<<<<<<<<<<<<<<<<<<<<<<<<
+				pulsamos git status (responde)
+				
+				C:\Cursos\GIT\Proyecto>git status
+				On branch master
+				Changes not staged for commit:
+				  (use "git add <file>..." to update what will be committed)
+				  (use "git restore <file>..." to discard changes in working directory)
+						modified:   index.html
+
+				no changes added to commit (use "git add" and/or "git commit -a")
+git checkout -- [file]	para revertir los cambos realizados (ejem git checkout -- index.html)
+
+git diff		Para ver las diferencias hechas en los archivos (ejem. git diff index.html)
+				C:\Cursos\GIT\Proyecto>git diff index.html
+				diff --git a/index.html b/index.html
+				index 2c5112e..ccd385d 100644
+				--- a/index.html
+				+++ b/index.html
+				@@ -1 +1,11 @@
+				-Texto HTML 											<<<esto era el texto anterior (ver signo -)
+				\ No newline at end of file								< finaliza lo anterior
+				+index.html<!DOCTYPE html>								<<<esto es el texto actual (ver signo +)
+				+<htm lang="en">
+				+<head>
+				+    <meta charset="UTF-8">
+				+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+				+    <title>Mi primera pagina</title>
+				+</head>
+				+<body>
+				+    
+				+</body>
+				+</htm
+				\ No newline at end of file								< finaliza lo actual
+  
+>>>>>>>>>>>>>>> PARA INCORPORAR CAMBIOS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+				git add index.html
+				
+				git status (nos dice)
+				C:\Cursos\GIT\Proyecto>git status
+				On branch master
+				Changes to be committed:
+				  (use "git restore --staged <file>..." to unstage)
+						modified:   index.html
+						
+				git commit (nos dice)
+				C:\Cursos\GIT\Proyecto>git commit
+				[master c2d9135] modificacion index.html				<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+				 1 file changed, 11 insertions(+), 1 deletion(-)
+				
+				git log	 (nos dice)		todos los commits realizados con sus correspondientes id
+				 C:\Cursos\GIT\Proyecto>git log
+				commit c2d91356b5d6b4851896d8b6f7bdb5e12678c8b0 (HEAD -> master)	<<<<<<<<<< identifica el commit actual- ultimo codigo(HEAD -> master)
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 13:45:12 2020 -0600
+
+					modificacion index.html
+
+				commit a36471c0e176c943fe3273cc34336f73429dc69b
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:57:41 2020 -0600
+
+					ncorporo file .vscode/
+				
+				commit 7ad791455bac08a3503dfffeefec0c35b4831946
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:31:38 2020 -0600
+
+					mi primer commit
+					
+>>>>>>>>>>>>>>>	INCORPORAMOS LA CARPETA TEST CON EL FICHERO (COMANDOS CONSOLA GIT.TXT) <<<<<<<<<<<<<<<<<<<<<<<<<<<
+				C:\Cursos\GIT\Proyecto>git status
+				On branch master
+				Untracked files:
+				  (use "git add <file>..." to include in what will be committed)
+						Test/														<<<<<<<<< lo identificamos como carpeta por el "/" final
+
+				nothing added to commit but untracked files present (use "git add" to track)
+				
+.gitignore		Fichero para ignorar partes del proyecto que no queremos incorporar al repositorio
+				contenido en nuestro caso:
+				
+					test 			<<<<<<<<<<<<<<<<<<< hara que se ignore el contenido y las modificaciones de esa carpeta 
+					
+				git status (nos dice)
+				C:\Cursos\GIT\Proyecto>git status
+				On branch master
+				Untracked files:
+				  (use "git add <file>..." to include in what will be committed)
+						.gitignore
+
+				nothing added to commit but untracked files present (use "git add" to track)
+				
+				git add .gitignore
+				
+				git status 	 (nos dice)
+				C:\Cursos\GIT\Proyecto>git status
+				On branch master
+				Changes to be committed:
+				  (use "git restore --staged <file>..." to unstage)
+						new file:   .gitignore
+						
+				git commit 	 (nos dice)
+				C:\Cursos\GIT\Proyecto>git commit
+				[master df1fd33] Incorporar .gitignore para omitir ficheros no pertenecientes al codigo  Pleas enter the commit message for your changes. Lines starting
+				 1 file changed, 1 insertion(+)
+				 create mode 100644 .gitignore
+				 
+				 git log  	 (nos dice)
+				 C:\Cursos\GIT\Proyecto>git log
+				commit df1fd33e9172a280bc76969fcb79e0d32c47391c (HEAD -> master)	<<<<<<<<<< identifica el commit actual- ultimo codigo(HEAD -> master)
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 15:08:27 2020 -0600
+
+					Incorporar .gitignore para omitir ficheros no pertenecientes al codigo
+					 Pleas enter the commit message for your changes. Lines starting
+
+				commit c2d91356b5d6b4851896d8b6f7bdb5e12678c8b0
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 13:45:12 2020 -0600
+
+					modificacion index.html
+
+				commit a36471c0e176c943fe3273cc34336f73429dc69b
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:57:41 2020 -0600
+
+					ncorporo file .vscode/
+
+				commit 7ad791455bac08a3503dfffeefec0c35b4831946
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:31:38 2020 -0600
+
+					mi primer commit
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>VERSIONADO <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+git branch		
+				C:\Cursos\GIT\Proyecto>git branch
+				* master	
+				
+				git branch segundaVersion				<<<<<<<< Creamos una version inicialmente identica a la master
+				
+				C:\Cursos\GIT\Proyecto>git branch		<<<<<< Dos versiones (master y segundaVersion)
+				* master
+				  segundaVersion
+git checkout
+				C:\Cursos\GIT\Proyecto>git checkout segundaVersion		<<<<< Pasa a version (segundaVersion)
+				Switched to branch 'segundaVersion'
+				
+				git branch   	 (nos dice)
+				C:\Cursos\GIT\Proyecto>git branch
+				  master
+				* segundaVersion						<<<<< Pasa a version (segundaVersion) mantenemos la version master como esta y entramos a la (segundaVersion) para modificar
+				
+				git add .
+				
+				C:\Cursos\GIT\Proyecto>git status
+				On branch segundaVersion				<<<< Nos da status de la version (segundaVersion)
+				Changes to be committed:
+				  (use "git restore --staged <file>..." to unstage)
+						new file:   Carpeta 2aVersion/fichero1.js
+						new file:   Carpeta 2aVersion/fichero2.js
+						
+				C:\Cursos\GIT\Proyecto>git commit -m "nuevo versionado para modificaciones"
+				[segundaVersion 996a402] nuevo versionado para modificaciones
+				 2 files changed, 2 insertions(+)
+				 create mode 100644 Carpeta 2aVersion/fichero1.js
+				 create mode 100644 Carpeta 2aVersion/fichero2.js
+				 
+				 git log (nos dice)
+				 C:\Cursos\GIT\Proyecto>git log
+				commit 996a40292b99da96868ed56b9ef1990bb106d3f6 (HEAD -> segundaVersion)		<<< commit para segundaVersion
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 15:53:14 2020 -0600
+
+					nuevo versionado para modificaciones
+
+				commit df1fd33e9172a280bc76969fcb79e0d32c47391c (master)						<<< commit para master
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 15:08:27 2020 -0600
+
+					Incorporar .gitignore para omitir ficheros no pertenecientes al codigo
+					 Pleas enter the commit message for your changes. Lines starting
+
+				commit c2d91356b5d6b4851896d8b6f7bdb5e12678c8b0
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 13:45:12 2020 -0600
+
+					modificacion index.html
+
+				commit a36471c0e176c943fe3273cc34336f73429dc69b
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:57:41 2020 -0600
+
+					ncorporo file .vscode/
+
+				commit 7ad791455bac08a3503dfffeefec0c35b4831946
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:31:38 2020 -0600
+
+					mi primer commit
+				
+>>>>>>>>>>>>>	C:\Cursos\GIT\Proyecto>git checkout master	<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CAMBIAMOS A LA OTRA VERSION
+				Switched to branch 'master'
+												Vemos que aqui no existe, ha desaparecido la carpeta creada para la otra version (2aVersion y contenido)
+												
+				git log (nos dice)		<<<<<<<<<<<<<<<<<<<<<<<<<< Vemos que solo aparece lo correspondiente a la version master a diferencia de la version (segundaversion)
+				C:\Cursos\GIT\Proyecto>git log
+				commit df1fd33e9172a280bc76969fcb79e0d32c47391c (HEAD -> master)
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 15:08:27 2020 -0600
+
+					Incorporar .gitignore para omitir ficheros no pertenecientes al codigo
+					 Pleas enter the commit message for your changes. Lines starting
+
+				commit c2d91356b5d6b4851896d8b6f7bdb5e12678c8b0
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 13:45:12 2020 -0600
+
+					modificacion index.html
+
+				commit a36471c0e176c943fe3273cc34336f73429dc69b
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:57:41 2020 -0600
+
+					ncorporo file .vscode/
+
+				commit 7ad791455bac08a3503dfffeefec0c35b4831946
+				Author: albertclementellovera <albertclementellovera@gmail.com>
+				Date:   Tue Jul 21 12:31:38 2020 -0600
+
+					mi primer commit
+					
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SUBIR A REPOSITORIO GITHUB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+Acceder o creau un nuevo repositorio	https://github.com/albertclementellovera?tab=repositories  damos a >>>>>>>  NEW (para crear el nuevo repositorio)
+										
+										Dar nombre al repositorio
+										Descripcion del contenido
+										Publico (el repositorio privado es de pago)
+										CREATE REPOSITORY  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+										Nos crea una direccion https://github.com/albertclementellovera/git-github-detalle.git  <<<<< correspondiente al repositorio
+										Nos da comandos para acceder al repositorio
+										git remote add origin https://github.com/albertclementellovera/git-github-detalle.git    <<<<<< Copiamos y pegamos en nuestro editor
+											C:\Cursos\GIT\Proyecto>git remote add origin https://github.com/albertclementellovera/git-github-detalle.git
+										git push -u origin master		<<<<<< Copiamos y pegamos en nuestro editor
+											Aparece un formulario tipo login (nos pide usuario pasword)
+											
+										C:\Cursos\GIT\Proyecto>git push -u origin master		<<<< Despues de Loguin INICIA LA SUBIDA AL REPOSITORIO
+										Enumerating objects: 15, done.
+										Counting objects: 100% (15/15), done.
+										Delta compression using up to 4 threads
+										Compressing objects: 100% (10/10), done.
+										Writing objects: 100% (15/15), 1.38 KiB | 201.00 KiB/s, done.
+										Total 15 (delta 3), reused 0 (delta 0), pack-reused 0
+										remote: Resolving deltas: 100% (3/3), done.
+										To https://github.com/albertclementellovera/git-github-detalle.git
+										 * [new branch]      master -> master
+										Branch 'master' set up to track remote branch 'master' from 'origin'.
+										
+										Refrescamos en repositorio y vemos el contendo
+										Nos pide crear fichero README para descripcion del contenido
+										Rellenamos
+										Le damos al Commit
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> PARA DESCARGAR O CLONAR EL PROYECTO DE GITHUB <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Bajar del repositorio					Darle al boton "Clone or Download" o "Code"
+										Copiamos la URL
+										Abrimos la consola de git "GIT BASH"
+git clone (URL)							git clone + paste de la URL copiada							
+					
+					
+					
+					
